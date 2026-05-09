@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Delivery App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>QuickBite</h1>
+      <p>Zomato-style food delivery flow for Customer, Restaurant, and Delivery Boy.</p>
+    </header>
+
+    <main class="grid">
+      <section class="card" id="customer-card">
+        <h2>Customer App</h2>
+        <label for="restaurantSelect">Select Restaurant</label>
+        <select id="restaurantSelect"></select>
+
+        <label for="menuSelect">Select Food Item</label>
+        <select id="menuSelect"></select>
+
+        <button id="placeOrderBtn">Place Order</button>
+
+        <h3>Order Status</h3>
+        <ul id="statusTimeline" class="timeline"></ul>
+      </section>
+
+      <section class="card" id="restaurant-card">
+        <h2>Restaurant App</h2>
+        <p><strong>Incoming order:</strong> <span id="restaurantOrder">No order yet</span></p>
+        <div class="actions">
+          <button id="acceptOrderBtn" disabled>Accept Order</button>
+          <button id="markReadyBtn" disabled>Mark Ready</button>
+        </div>
+      </section>
+
+      <section class="card" id="delivery-card">
+        <h2>Delivery Boy App</h2>
+        <p><strong>Assigned order:</strong> <span id="deliveryOrder">No order assigned</span></p>
+        <div class="actions">
+          <button id="pickupOrderBtn" disabled>Pickup Order</button>
+          <button id="deliverOrderBtn" disabled>Deliver Order</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
