@@ -3,12 +3,20 @@
     "name": "Food Delivery",
     "slug": "food-delivery",
     "scheme": "fooddelivery",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "web": {
       "bundler": "metro"
     },
     "experiments": {
-      "typedRoutes": false
-    }
+      "typedRoutes": false,
+      "reactCompiler": true
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

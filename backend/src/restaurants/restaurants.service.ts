@@ -2,6 +2,7 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Restaurant } from './restaurant.entity';
+import { RESTAURANTS_SEED } from './restaurants.data';
 
 export type RestaurantSortBy = 'rating' | 'deliveryTime' | 'deliveryFee';
 
@@ -15,38 +16,7 @@ export class RestaurantsService implements OnModuleInit {
   async onModuleInit() {
     const count = await this.restaurantsRepository.count();
     if (count === 0) {
-      await this.restaurantsRepository.save([
-        {
-          name: 'Burger Town',
-          cuisine: 'American',
-          deliveryTimeMinutes: 25,
-          rating: 4.3,
-          deliveryFee: 2.49,
-          isOpen: true,
-          isFeatured: true,
-          promoPercent: 20
-        },
-        {
-          name: 'Sushi Express',
-          cuisine: 'Japanese',
-          deliveryTimeMinutes: 35,
-          rating: 4.8,
-          deliveryFee: 3.99,
-          isOpen: true,
-          isFeatured: false,
-          promoPercent: 0
-        },
-        {
-          name: 'Pasta Place',
-          cuisine: 'Italian',
-          deliveryTimeMinutes: 30,
-          rating: 4.6,
-          deliveryFee: 1.99,
-          isOpen: false,
-          isFeatured: true,
-          promoPercent: 15
-        }
-      ]);
+      await this.restaurantsRepository.save(RESTAURANTS_SEED);
     }
   }
 
